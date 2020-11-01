@@ -9,7 +9,7 @@ import java.util.*;
 
 public class Deck {
     
-     private final String[] palos = {"Tréboles", "Corazones", "Picas", "Diamantes"};
+    private final String[] palos = {"Tréboles", "Corazones", "Picas", "Diamantes"};
     private final String[] colores = {"Negro", "Rojo"};
     private final String[] valores = {"2", "3", "4", "5", "6", "7", "8", "9", "10",
         "J", "Q", "K", "A"};
@@ -45,39 +45,53 @@ public class Deck {
         
     }
     
-    public void head(){
-        if(myDeck.size()>0){
+    public void head()throws Exception{
+        try{
+        
             System.out.printf("%s\nQuedan %d cartas en deck\n", myDeck.remove(0),
                 myDeck.size());
-        } else {
-            System.out.println("No hay cartas en deck");
+        
+        }catch(Exception e){
+            System.out.println(e.getMessage());
+            System.out.println("Se han agotado las cartas.");
+            System.out.println("Aplicación finalizada.");
+            System.exit(0);
         }
         
     }
     
-    public void pick(){
+    public void pick() throws Exception{
+        
+        try{
         int ranCard; 
-        if(myDeck.size()>0){
             ranCard = random.nextInt(myDeck.size());
             System.out.printf("%s\nQuedan %d cartas en deck\n", 
                 myDeck.remove(ranCard), myDeck.size());
-        } else {
-            System.out.println("No hay cartas en deck");
+        
+        }catch(Exception e){
+            System.out.println(e.getMessage());
+            System.out.println("Se han agotado las cartas.");
+            System.out.println("Aplicación finalizada.");
+            System.exit(0);
         }
         
     }
     
-    public void hand(){
+    public void hand() throws Exception{
+        try{
         for (int i = 0; i < 5; i++) {
-            if (myDeck.size()> 0) {
+            
                 System.out.println(myDeck.remove(0));
-            } else {
-                System.out.println("No hay suficientes cartas en deck");
-                break;
-            }
+             
             
         }
         System.out.printf("Quedan %d cartas en deck\n", myDeck.size());
+        }catch(Exception e){
+            System.out.println(e.getMessage());
+            System.out.println("Se han agotado las cartas.");
+            System.out.println("Aplicación finalizada.");
+            System.exit(0);
+        }
     }
     
     public Card[] Hand(){

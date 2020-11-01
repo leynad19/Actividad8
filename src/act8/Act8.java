@@ -21,6 +21,8 @@ public class Act8 {
          Deck Deck = new Deck();
         boolean salir = false;
         do {
+            
+            try{
             switch (showMenu()){
             case 1: 
                 Deck.shuffle();
@@ -41,6 +43,9 @@ public class Act8 {
             default: 
                 System.out.println("Opción no válida");
         }
+            }catch(Exception e){
+                System.out.println("Opcion no valida, intente de nuevo");
+            }    
         } while (!salir);
         
     }
